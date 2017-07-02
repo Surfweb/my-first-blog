@@ -1,24 +1,43 @@
+<!-- Добавляем стили CSS  -->
+{% load staticfiles %}
+
+<!DOCTYPE html>
 <html>
-	<head></head>
+	<head>
+		<title> ... </title>
+		<!-- Добавляем bootstarap -->
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<!-- Добавляем собственные стили-->
+		<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+	</head>
 	<body>
-		<div>
-			<h1><a href="/">Surf Blog</a></h1>
+		<div class="page-header">
+			<h1><a href="/">Networking</a></h1>
 		</div>
 		<div>
 			<!--{{posts}}-->
 			<!-- Вернет: [<Post: Первый пост>, <Post: Второй пост>, <Post: Третий пост (Заметка)>, <Post: Sample title>] -->
 		</div>
 		
-		<div>
-			{% for post in posts%}
-				<div>
-					<p>{{post.author}} | {{post.published_date}}</p> 
-					<h1>{{post.title}}</h1>
-					<p>{{post.text|linebreaksbr }}</p>
-					<!-- |linebreaksbr - преобразование переносов строк в параграфы -->
-				</div><hr>
-			{% endfor %}
+	
+		<div class="content container">
+			<div class="row">
+				<div class="col-md-8">
+					{% for post in posts%}
+						<div class="post">
+							<div class="date">
+								{{post.author}} | {{post.published_date}}
+							</div>
+							<h1><a href="#">{{post.title}}</a></h1>
+							<p>{{post.text|linebreaksbr }}</p>
+							<!-- |linebreaksbr - преобразование переносов строк в параграфы -->
+						</div><hr>
+					{% endfor %}
+				</div>
+			</div>
 		</div>
+		
 		
 	</body>
 </html>
