@@ -1,1 +1,24 @@
-Hello World
+<html>
+	<head></head>
+	<body>
+		<div>
+			<h1><a href="/">Surf Blog</a></h1>
+		</div>
+		<div>
+			<!--{{posts}}-->
+			<!-- Вернет: [<Post: Первый пост>, <Post: Второй пост>, <Post: Третий пост (Заметка)>, <Post: Sample title>] -->
+		</div>
+		
+		<div>
+			{% for post in posts%}
+				<div>
+					<p>{{post.author}} | {{post.published_date}}</p> 
+					<h1>{{post.title}}</h1>
+					<p>{{post.text|linebreaksbr }}</p>
+					<!-- |linebreaksbr - преобразование переносов строк в параграфы -->
+				</div><hr>
+			{% endfor %}
+		</div>
+		
+	</body>
+</html>
