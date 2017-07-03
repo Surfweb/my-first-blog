@@ -7,11 +7,12 @@
 		
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-		
+		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu">
 		<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
 	</head>
 		<body>
 			<div class="page-header">
+				 <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
 				<h1><a href="/">Networking</a></h1>
 			</div>
 			<div class="content container">
